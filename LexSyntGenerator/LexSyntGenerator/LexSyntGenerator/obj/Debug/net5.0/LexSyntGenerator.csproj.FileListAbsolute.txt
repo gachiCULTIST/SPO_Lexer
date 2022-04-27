@@ -1,0 +1,16 @@
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\bin\Debug\net5.0\LexSyntGenerator.exe
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\bin\Debug\net5.0\LexSyntGenerator.deps.json
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\bin\Debug\net5.0\LexSyntGenerator.runtimeconfig.json
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\bin\Debug\net5.0\LexSyntGenerator.runtimeconfig.dev.json
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\bin\Debug\net5.0\LexSyntGenerator.dll
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\bin\Debug\net5.0\ref\LexSyntGenerator.dll
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\bin\Debug\net5.0\LexSyntGenerator.pdb
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\LexSyntGenerator.csprojAssemblyReference.cache
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\LexSyntGenerator.GeneratedMSBuildEditorConfig.editorconfig
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\LexSyntGenerator.AssemblyInfoInputs.cache
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\LexSyntGenerator.AssemblyInfo.cs
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\LexSyntGenerator.csproj.CoreCompileInputs.cache
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\LexSyntGenerator.dll
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\ref\LexSyntGenerator.dll
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\LexSyntGenerator.pdb
+D:\учеба\Системное программное обеспечение\LexSyntGenerator\LexSyntGenerator\LexSyntGenerator\obj\Debug\net5.0\LexSyntGenerator.genruntimeconfig.cache

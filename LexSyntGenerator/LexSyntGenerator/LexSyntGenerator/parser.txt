@@ -1,0 +1,377 @@
+здддддддддбдддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд©
+Ё stateNo Ё                                   stateDef                                   Ё
+фмммммммммьмммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммммм╣
+Ё 0       Ё %S -> . D %eof,%eof                                                          Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё D -> . def id lparen A rparen init E,%eof                                    Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё T -> . T division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё E -> . E minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё T -> . T multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё E -> . E plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё D -> . def id init E,%eof                                                    Ё
+Ё         Ё D -> . E,%eof                                                                Ё
+Ё         Ё E -> . T,%eof/comma/minus/plus/rparen                                        Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё T -> . F,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 1       Ё %S -> D %eof .,%eof                                                          Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 2       Ё %S -> D . %eof,%eof                                                          Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 3       Ё P -> E comma . P,rparen                                                      Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё P -> .,rparen                                                                Ё
+Ё         Ё P -> . E,rparen                                                              Ё
+Ё         Ё P -> . E comma P,rparen                                                      Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё T -> . T division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё E -> . E minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё T -> . T multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё E -> . E plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё E -> . T,%eof/comma/minus/plus/rparen                                        Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё T -> . F,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 4       Ё P -> E .,rparen                                                              Ё
+Ё         Ё P -> E . comma P,rparen                                                      Ё
+Ё         Ё E -> E . minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё E -> E . plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 5       Ё P -> E comma P .,rparen                                                      Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 6       Ё A -> id comma . A,rparen                                                     Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё A -> .,rparen                                                                Ё
+Ё         Ё A -> . id,rparen                                                             Ё
+Ё         Ё A -> . id comma A,rparen                                                     Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 7       Ё A -> id .,rparen                                                             Ё
+Ё         Ё A -> id . comma A,rparen                                                     Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 8       Ё A -> id comma A .,rparen                                                     Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 9       Ё D -> def . id lparen A rparen init E,%eof                                    Ё
+Ё         Ё D -> def . id init E,%eof                                                    Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 10      Ё D -> def id . lparen A rparen init E,%eof                                    Ё
+Ё         Ё D -> def id . init E,%eof                                                    Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 11      Ё D -> def id lparen A rparen init . E,%eof                                    Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё T -> . T division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё E -> . E minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё T -> . T multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё E -> . E plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё E -> . T,%eof/comma/minus/plus/rparen                                        Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё T -> . F,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 12      Ё D -> def id lparen . A rparen init E,%eof                                    Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё A -> .,rparen                                                                Ё
+Ё         Ё A -> . id,rparen                                                             Ё
+Ё         Ё A -> . id comma A,rparen                                                     Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 13      Ё D -> def id lparen A rparen . init E,%eof                                    Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 14      Ё D -> def id lparen A . rparen init E,%eof                                    Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 15      Ё D -> def id lparen A rparen init E .,%eof                                    Ё
+Ё         Ё E -> E . minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё E -> E . plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 16      Ё V -> id . lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё V -> id .,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 17      Ё V -> id lparen . P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё P -> .,rparen                                                                Ё
+Ё         Ё P -> . E,rparen                                                              Ё
+Ё         Ё P -> . E comma P,rparen                                                      Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё T -> . T division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё E -> . E minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё T -> . T multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё E -> . E plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё E -> . T,%eof/comma/minus/plus/rparen                                        Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё T -> . F,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 18      Ё V -> id lparen P rparen .,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 19      Ё V -> id lparen P . rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 20      Ё T -> T division . F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 21      Ё T -> T division F .,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 22      Ё T -> T . division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё E -> E minus T .,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё T -> T . multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 23      Ё T -> T . division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё T -> T . multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё E -> E plus T .,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 24      Ё T -> T . division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё T -> T . multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё E -> T .,%eof/comma/minus/plus/rparen                                        Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 25      Ё V -> lparen . E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё T -> . T division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё E -> . E minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё T -> . T multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё E -> . E plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё E -> . T,%eof/comma/minus/plus/rparen                                        Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё T -> . F,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 26      Ё V -> lparen E rparen .,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 27      Ё V -> lparen E . rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё E -> E . minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё E -> E . plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 28      Ё V -> minus . V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 29      Ё V -> minus V .,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 30      Ё E -> E minus . T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё T -> . T division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё T -> . T multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё T -> . F,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 31      Ё E -> E . minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё E -> E . plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё D -> def id init E .,%eof                                                    Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 32      Ё E -> E . minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё E -> E . plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё D -> E .,%eof                                                                Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 33      Ё T -> T multiply . F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 34      Ё T -> T multiply F .,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 35      Ё V -> number .,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 36      Ё E -> E plus . T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё T -> . T division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё T -> . T multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё T -> . F,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 37      Ё F -> V pow . F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 38      Ё F -> V pow F .,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 39      Ё F -> V . pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё F -> V .,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё ---                                                                          Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 40      Ё D -> def id init . E,%eof                                                    Ё
+Ё         Ё ---                                                                          Ё
+Ё         Ё V -> . id lparen P rparen,%eof/comma/division/minus/multiply/plus/pow/rparen Ё
+Ё         Ё T -> . T division F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . id,%eof/comma/division/minus/multiply/plus/pow/rparen                 Ё
+Ё         Ё V -> . lparen E rparen,%eof/comma/division/minus/multiply/plus/pow/rparen    Ё
+Ё         Ё V -> . minus V,%eof/comma/division/minus/multiply/plus/pow/rparen            Ё
+Ё         Ё E -> . E minus T,%eof/comma/minus/plus/rparen                                Ё
+Ё         Ё T -> . T multiply F,%eof/comma/division/minus/multiply/plus/rparen           Ё
+Ё         Ё V -> . number,%eof/comma/division/minus/multiply/plus/pow/rparen             Ё
+Ё         Ё E -> . E plus T,%eof/comma/minus/plus/rparen                                 Ё
+Ё         Ё F -> . V pow F,%eof/comma/division/minus/multiply/plus/rparen                Ё
+Ё         Ё E -> . T,%eof/comma/minus/plus/rparen                                        Ё
+Ё         Ё F -> . V,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё T -> . F,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+цдддддддддедддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддд╢
+Ё 41      Ё T -> F .,%eof/comma/division/minus/multiply/plus/rparen                      Ё
+Ё         Ё ---                                                                          Ё
+юдддддддддадддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддддды
+зддддбддддддбдддддддбдддддбддддддддддбддддбддддддбддддддддбдддддддбддддддддддбддддддддбддддддбдддддбддддддддбддддбдддбддддбддддбддддбддддбдддд©
+Ё    Ё %eof Ё comma Ё def Ё division Ё id Ё init Ё lparen Ё minus Ё multiply Ё number Ё plus Ё pow Ё rparen Ё A  Ё D Ё E  Ё F  Ё P  Ё T  Ё V  Ё
+фммммьммммммьмммммммьмммммьммммммммммьммммьммммммьммммммммьмммммммьммммммммммьммммммммьммммммьмммммьммммммммьммммьмммьммммьммммьммммьммммьмммм╣
+Ё 0  Ё      Ё       Ё 9   Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё 2 Ё 32 Ё 41 Ё    Ё 24 Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 1  Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 2  Ё 1    Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 3  Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё 4  Ё 41 Ё 5  Ё 24 Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 4  Ё      Ё 3     Ё     Ё          Ё    Ё      Ё        Ё 30    Ё          Ё        Ё 36   Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 5  Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 6  Ё      Ё       Ё     Ё          Ё 7  Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё 8  Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 7  Ё      Ё 6     Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 8  Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 9  Ё      Ё       Ё     Ё          Ё 10 Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 10 Ё      Ё       Ё     Ё          Ё    Ё 40   Ё 12     Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 11 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё 15 Ё 41 Ё    Ё 24 Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 12 Ё      Ё       Ё     Ё          Ё 7  Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё 14 Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 13 Ё      Ё       Ё     Ё          Ё    Ё 11   Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 14 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё 13     Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 15 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё 30    Ё          Ё        Ё 36   Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 16 Ё      Ё       Ё     Ё          Ё    Ё      Ё 17     Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 17 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё 4  Ё 41 Ё 19 Ё 24 Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 18 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 19 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё 18     Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 20 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё    Ё 21 Ё    Ё    Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 21 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 22 Ё      Ё       Ё     Ё 20       Ё    Ё      Ё        Ё       Ё 33       Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 23 Ё      Ё       Ё     Ё 20       Ё    Ё      Ё        Ё       Ё 33       Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 24 Ё      Ё       Ё     Ё 20       Ё    Ё      Ё        Ё       Ё 33       Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 25 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё 27 Ё 41 Ё    Ё 24 Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 26 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 27 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё 30    Ё          Ё        Ё 36   Ё     Ё 26     Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 28 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё 29 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 29 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 30 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё    Ё 41 Ё    Ё 22 Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 31 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё 30    Ё          Ё        Ё 36   Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 32 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё 30    Ё          Ё        Ё 36   Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 33 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё    Ё 34 Ё    Ё    Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 34 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 35 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 36 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё    Ё 41 Ё    Ё 23 Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 37 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё    Ё 38 Ё    Ё    Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 38 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 39 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё 37  Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 40 Ё      Ё       Ё     Ё          Ё 16 Ё      Ё 25     Ё 28    Ё          Ё 35     Ё      Ё     Ё        Ё    Ё   Ё 31 Ё 41 Ё    Ё 24 Ё 39 Ё
+цддддеддддддедддддддедддддеддддддддддеддддеддддддеддддддддедддддддеддддддддддеддддддддеддддддедддддеддддддддеддддедддеддддеддддеддддеддддедддд╢
+Ё 41 Ё      Ё       Ё     Ё          Ё    Ё      Ё        Ё       Ё          Ё        Ё      Ё     Ё        Ё    Ё   Ё    Ё    Ё    Ё    Ё    Ё
+юддддаддддддадддддддадддддаддддддддддаддддаддддддаддддддддадддддддаддддддддддаддддддддаддддддадддддаддддддддаддддадддаддддаддддаддддаддддадддды
