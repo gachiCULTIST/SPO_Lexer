@@ -28,6 +28,10 @@ namespace LexSyntGenerator
             Function func = null;
             if (funcs.TryGetValue(id, out func))
             {
+                if (func.parametrs.parametrs.Count != args.arguments.Count)
+                {
+                    throw new Exception("Неправильное количество аргументов в функции " + id + "!");
+                }
                 Node body = func.init.funcArgsReplacment(func.parametrs.parametrs, args.arguments);
                 return body.interpret(vars, funcs);
             }
