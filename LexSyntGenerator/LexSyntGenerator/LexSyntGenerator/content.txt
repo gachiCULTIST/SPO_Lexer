@@ -1,4 +1,4 @@
-number /[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?/ { Double.Parse(text) }
+number /[0-9]+(\.[0-9]*)?([eE][\+\-]?[0-9]+)?/ { text }
 plus /\+/ {text}
 minus /\-/ {text}
 pow /^/ {text}
@@ -12,6 +12,7 @@ init /=/ {text}
 def /def:/ {text}
 / +/
 call /:call/ {text /* мне лень вручную это добавлять в перечисление */}
+uminus /:uminus/ {text /* мне лень вручную это добавлять в перечисление */}
 
 %%
 
@@ -19,34 +20,34 @@ call /:call/ {text /* мне лень вручную это добавлять �
 	using LexSyntGenerator;
 }
 
-D -> def id init E { Variable.defineVar(_2, Node.stack) }
-  | def id lparen A rparen init E { Function.defineFunc(_2, Node.stack) }
+D -> def id init E { new Variable(_2, _4) }
+  | def id lparen P rparen init E { new Function(_2, _4, _7) }
   | E {_1}
 ;
 
-A -> id comma A { Function.addParam(_1 as string) }
-  | id { Function.addParam(_1 as string) }
-  |
+P -> id comma P { _3.addParametr(_1) }
+  | id { new Parametrs(_1) }
+  | { new Parametrs() }
 ;
-E -> E plus T { Node.createNode(new Token(TokenType.Tok_plus, _2), Node.stack, 2) } 
-  | E minus T { Node.createNode(new Token(TokenType.Tok_minus, _2), Node.stack, 2) }
+E -> E plus T { new BinOperator(TokenType.Tok_plus, _1, _3) } 
+  | E minus T { new BinOperator(TokenType.Tok_minus, _1, _3) }
   | T {_1}
 ;
-T -> T multiply F { Node.createNode(new Token(TokenType.Tok_multiply, _2), Node.stack, 2) }
-  | T division F  { Node.createNode(new Token(TokenType.Tok_division, _2), Node.stack, 2) }
+T -> T multiply F { new BinOperator(TokenType.Tok_multiply, _1, _3) }
+  | T division F  { new BinOperator(TokenType.Tok_division, _1, _3) }
   | F {_1}
 ;
-F -> V pow F { Node.createNode(new Token(TokenType.Tok_pow, _2), Node.stack, 2) }
+F -> V pow F { new BinOperator(TokenType.Tok_pow, _1, _3) }
   | V {_1}
 ;
-V -> lparen E rparen { Node.createNode(new Token(TokenType.Tok_lparen, "()"), Node.stack, 1) }
-  | id lparen P rparen { Node.createNode(new Token(TokenType.Tok_call, _1), Node.stack, 0) }
-  | id { Node.createNode(new Token(TokenType.Tok_id, _1), Node.stack, 1) }
-  | number { Node.createNode(new Token(TokenType.Tok_number, _1), Node.stack, 1) }
-  | minus V { Node.createNode(new Token(TokenType.Tok_minus, _1), Node.stack, 1) }
+V -> lparen E rparen { _2 }
+  | id lparen A rparen { new FuncUsage(_1, _3) }
+  | id { new VarUsage(_1) }
+  | number { new Number(_1) }
+  | minus V { new UnOperator(TokenType.Tok_uminus, _2) }
 ;
 
-P -> E comma P
-  | E
-  |
+A -> E comma A { _3.addArgument(_1) }
+  | E { new Arguments(_1) }
+  | {new Arguments() }
 ;

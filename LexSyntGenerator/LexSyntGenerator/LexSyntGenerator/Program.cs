@@ -14,6 +14,8 @@ namespace LexSyntGenerator
             Lexer lexer;
             Parser parser;
 
+            Dictionary<string, Variable> vars = new Dictionary<string, Variable>();
+            Dictionary<string, Function> funcs = new Dictionary<string, Function>();
 
             while(!str.Equals(":e"))
             {
@@ -23,13 +25,26 @@ namespace LexSyntGenerator
                     {
                         lexer = new Lexer(str);
                         parser = new Parser(lexer);
-                        parser.parse();
-                        if (Node.stack.Peek().token.token != TokenType.Tok_init)
+                        dynamic result = parser.parse();
+                        Console.WriteLine(result.tree(0));
+                        if (result is Function)
                         {
-                            Console.WriteLine(Node.getResult(Node.stack.Peek()));
+                            if (funcs.ContainsKey(result.id))
+                            {
+                                funcs.Remove(result.id);
+                            }
+                            funcs.Add(result.id, result);
+                        } else if (result is Variable)
+                        {
+                            if (vars.ContainsKey(result.id))
+                            {
+                                vars.Remove(result.id);
+                            }
+                            vars.Add(result.id, result);
+                        } else
+                        {
+                            Console.WriteLine("Result: " + result.interpret(vars, funcs));
                         }
-                        Node.printTree(Node.stack.Peek(), 0);
-                        Node.stack.Clear();
                     } catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
