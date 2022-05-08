@@ -27,6 +27,8 @@ namespace LexSyntGenerator
                         parser = new Parser(lexer);
                         dynamic result = parser.parse();
                         Console.WriteLine(result.tree(0));
+                        TypeChecker checker = new TypeChecker(vars, funcs);
+                        Console.WriteLine("Type: " + checker.getExpressionType(result));
                         if (result is Function)
                         {
                             if (funcs.ContainsKey(result.id))

@@ -32,13 +32,26 @@ namespace LexSyntGenerator
                 {
                     throw new Exception("Неправильное количество аргументов в функции " + id + "!");
                 }
-                Node body = func.init.funcArgsReplacment(func.parametrs.parametrs, args.arguments);
+                // AUTO TYPE CASTING
+                // AUTO TYPE CASTING
+                // AUTO TYPE CASTING
+                List<Node> castedArgs = new List<Node>();
+                for (int i = 0; i < args.arguments.Count; ++i)
+                {
+                    dynamic temp = args.arguments[i].interpret(vars, funcs);
+                    if (temp is int && func.parametrs.parametrs[i].type == Type.Float)
+                    {
+                        temp = Convert.ToDouble(temp);
+                    }
+                    castedArgs.Add(new Number(temp, func.parametrs.parametrs[i].type));
+                }
+                Node body = func.init.funcArgsReplacment(func.parametrs.parametrs, castedArgs);
                 return body.interpret(vars, funcs);
             }
             throw new Exception("Undefined function: " + id + "!");
         }
 
-        public Node funcArgsReplacment(List<string> parametrs, List<Node> args)
+        public Node funcArgsReplacment(List<(Type type, string id)> parametrs, List<Node> args)
         {
             return new FuncUsage(new string(id), this.args.funcArgsReplacment(parametrs, args) as Arguments);
         }

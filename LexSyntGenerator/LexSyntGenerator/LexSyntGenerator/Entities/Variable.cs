@@ -6,34 +6,32 @@ using System.Threading.Tasks;
 
 namespace LexSyntGenerator
 {
-    public class Function : Node
+    public enum VarType { Integer, Double }
+
+    public class Variable : Node
     {
         
         public string id { get; set; }
 
-        public Parametrs parametrs { get; set; }
-
         public Node init { get; set; }
 
-        public Function(string id, Parametrs parametrs, Node init)
+        public Variable(string id, Node expression)
         {
             this.id = id;
-            this.parametrs = parametrs;
-            this.init = init;
+            this.init = expression;
         }
 
         public string tree(int level)
         {
-            return new string('\t', level) + "function " + id + ":\n" + parametrs.tree(level + 1) +
-                "\n" + new string('\t', level + 1) + "body:\n" + init.tree(level + 2);
+            return new string('\t', level) + this.id + ":\n" + init.tree(level + 1);
         }
 
         public dynamic interpret(Dictionary<string, Variable> vars, Dictionary<string, Function> funcs)
         {
-            throw new NotImplementedException();
+            return init.interpret(vars, funcs);
         }
 
-        public Node funcArgsReplacment(List<string> parametrs, List<Node> args)
+        public Node funcArgsReplacment(List<(Type type, string id)> parametrs, List<Node> args)
         {
             throw new NotImplementedException();
         }

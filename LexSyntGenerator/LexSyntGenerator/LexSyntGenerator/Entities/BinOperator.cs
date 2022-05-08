@@ -39,13 +39,21 @@ namespace LexSyntGenerator
                 case TokenType.Tok_division:
                     return operand1.interpret(vars, funcs) / operand2.interpret(vars, funcs);
                 case TokenType.Tok_pow:
-                    return Math.Pow(operand1.interpret(vars, funcs), operand2.interpret(vars, funcs));
+                    dynamic op1 = operand1.interpret(vars, funcs);
+                    dynamic op2 = operand2.interpret(vars, funcs);
+                    if (op1 is double || op2 is double)
+                    {
+                        return Math.Pow(op1, op2);
+                    } else
+                    {
+                        return op1 ^ op2;
+                    }
                 default:
                     throw new Exception("Unsupported operation: " + op + "!");
             }
         }
 
-        public Node funcArgsReplacment(List<string> parametrs, List<Node> args)
+        public Node funcArgsReplacment(List<(Type type, string id)> parametrs, List<Node> args)
         {
             return new BinOperator(op, operand1.funcArgsReplacment(parametrs, args), operand2.funcArgsReplacment(parametrs, args));
         }

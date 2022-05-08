@@ -10,6 +10,8 @@ namespace LexSyntGenerator
     {
         public dynamic value { get; set; }
 
+        public Type type { get; set; }
+
         public Number() { value = 0; }
 
         public Number(string literal)
@@ -18,10 +20,18 @@ namespace LexSyntGenerator
             if (Int32.TryParse(literal, out integer))
             {
                 value = integer;
+                type = Type.Int;
             } else
             {
                 value = Double.Parse(literal.Replace('.', ','));
+                type = Type.Float;
             }
+        }
+
+        public Number(dynamic value, Type type)
+        {
+            this.value = value;
+            this.type = type;
         }
 
         public string tree(int level)
@@ -34,7 +44,7 @@ namespace LexSyntGenerator
             return value;
         }
 
-        public Node funcArgsReplacment(List<string> parametrs, List<Node> args)
+        public Node funcArgsReplacment(List<(Type type, string id)> parametrs, List<Node> args)
         {
             Number num = new Number();
             num.value = this.value;

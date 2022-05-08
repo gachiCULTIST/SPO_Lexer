@@ -35,7 +35,7 @@ namespace LexSyntGenerator
             }
         }
 
-        public Node funcArgsReplacment(List<string> parametrs, List<Node> args)
+        public Node funcArgsReplacment(List<(Type type, string id)> parametrs, List<Node> args)
         {
             return new UnOperator(op, operand.funcArgsReplacment(parametrs, args));
         }

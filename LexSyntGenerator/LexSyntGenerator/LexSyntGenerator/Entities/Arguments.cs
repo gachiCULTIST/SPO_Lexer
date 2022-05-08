@@ -37,7 +37,7 @@ namespace LexSyntGenerator
             throw new NotImplementedException();
         }
 
-        public Node funcArgsReplacment(List<string> parametrs, List<Node> args)
+        public Node funcArgsReplacment(List<(Type type, string id)> parametrs, List<Node> args)
         {
             Arguments newArgs = new Arguments();
             foreach(Node n in arguments)

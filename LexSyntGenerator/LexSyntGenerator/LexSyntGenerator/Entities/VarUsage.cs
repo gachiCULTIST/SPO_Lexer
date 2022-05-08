@@ -30,11 +30,11 @@ namespace LexSyntGenerator
             throw new Exception("Undefined variable: " + id + "!");
         }
 
-        public Node funcArgsReplacment(List<string> parametrs, List<Node> args)
+        public Node funcArgsReplacment(List<(Type type, string id)> parametrs, List<Node> args)
         {
             for (int i = 0; i < parametrs.Count; ++i)
             {
-                if (this.id.Equals(parametrs[i]))
+                if (this.id.Equals(parametrs[i].id))
                 {
                     return args[i];
                 }

@@ -25,8 +25,8 @@ D -> def id init E { new Variable(_2, _4) }
   | E {_1}
 ;
 
-P -> id comma P { _3.addParametr(_1) }
-  | id { new Parametrs(_1) }
+P -> id id comma P { _4.addParametr(_1, _2) }
+  | id id { new Parametrs(_1, _2) }
   | { new Parametrs() }
 ;
 E -> E plus T { new BinOperator(TokenType.Tok_plus, _1, _3) } 

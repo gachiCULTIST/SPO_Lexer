@@ -10,98 +10,100 @@ public class Parser {
   private readonly bool debug;
   private Stack<(uint state, dynamic value)> stack = new Stack<(uint state, dynamic value)>();
   private static uint[,] Action = new uint[,] {
-    {42,3,42,42,42,42,38,42,42,42,27,37,31,42,42},
-    {43,42,42,42,42,42,42,42,42,42,42,42,42,42,42},
-    {1,42,42,42,42,42,42,42,42,42,42,42,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {44,42,44,44,44,44,44,44,42,44,42,42,42,42,42},
-    {42,42,4,42,23,42,17,42,42,42,42,42,42,42,42},
-    {42,3,45,42,42,42,38,42,42,42,27,37,42,42,42},
-    {42,42,46,42,42,42,42,42,42,42,42,42,42,42,42},
-    {42,42,47,42,23,6,17,42,42,42,42,42,42,42,42},
-    {42,42,48,42,42,42,42,42,42,42,10,42,42,42,42},
-    {42,42,49,42,42,9,42,42,42,42,42,42,42,42,42},
-    {42,42,50,42,42,42,42,42,42,42,42,42,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {51,42,51,51,51,51,51,51,42,42,42,42,42,42,42},
-    {52,42,52,21,52,52,52,12,42,42,42,42,42,42,42},
-    {53,42,53,21,53,53,53,12,42,42,42,42,42,42,42},
-    {54,42,54,21,54,54,54,12,42,42,42,42,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {55,42,42,42,23,42,17,42,42,42,42,42,42,42,42},
-    {56,42,42,42,23,42,17,42,42,42,42,42,42,42,42},
-    {57,42,42,42,23,42,17,42,42,42,42,42,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {58,42,58,58,58,58,58,58,42,42,42,42,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {59,42,59,59,59,59,59,59,42,42,42,42,42,42,42},
-    {60,42,60,60,60,60,60,60,42,24,42,42,42,42,42},
-    {61,28,61,61,61,61,61,61,42,61,42,42,42,42,42},
-    {42,3,45,42,42,42,38,42,42,42,27,37,42,42,42},
-    {62,42,62,62,62,62,62,62,42,62,42,42,42,42,42},
-    {42,42,29,42,42,42,42,42,42,42,42,42,42,42,42},
-    {42,42,42,42,42,42,42,42,42,42,32,42,42,42,42},
-    {42,34,42,42,42,42,42,42,40,42,42,42,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {42,42,48,42,42,42,42,42,42,42,10,42,42,42,42},
-    {42,42,42,42,42,42,42,42,33,42,42,42,42,42,42},
-    {42,42,35,42,42,42,42,42,42,42,42,42,42,42,42},
-    {63,42,63,63,63,63,63,63,42,63,42,42,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {64,42,64,64,64,64,64,64,42,64,42,42,42,42,42},
-    {42,3,42,42,42,42,38,42,42,42,27,37,42,42,42},
-    {65,42,65,65,65,65,65,65,42,42,42,42,42,42,42}
+    {43,3,43,43,43,43,39,43,43,43,28,38,32,43,43},
+    {44,43,43,43,43,43,43,43,43,43,43,43,43,43,43},
+    {1,43,43,43,43,43,43,43,43,43,43,43,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {45,43,45,45,45,45,45,45,43,45,43,43,43,43,43},
+    {43,43,4,43,24,43,18,43,43,43,43,43,43,43,43},
+    {43,3,46,43,43,43,39,43,43,43,28,38,43,43,43},
+    {43,43,47,43,43,43,43,43,43,43,43,43,43,43,43},
+    {43,43,48,43,24,6,18,43,43,43,43,43,43,43,43},
+    {43,43,49,43,43,43,43,43,43,43,10,43,43,43,43},
+    {43,43,43,43,43,43,43,43,43,43,11,43,43,43,43},
+    {43,43,50,43,43,9,43,43,43,43,43,43,43,43,43},
+    {43,43,51,43,43,43,43,43,43,43,43,43,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {52,43,52,52,52,52,52,52,43,43,43,43,43,43,43},
+    {53,43,53,22,53,53,53,13,43,43,43,43,43,43,43},
+    {54,43,54,22,54,54,54,13,43,43,43,43,43,43,43},
+    {55,43,55,22,55,55,55,13,43,43,43,43,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {56,43,43,43,24,43,18,43,43,43,43,43,43,43,43},
+    {57,43,43,43,24,43,18,43,43,43,43,43,43,43,43},
+    {58,43,43,43,24,43,18,43,43,43,43,43,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {59,43,59,59,59,59,59,59,43,43,43,43,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {60,43,60,60,60,60,60,60,43,43,43,43,43,43,43},
+    {61,43,61,61,61,61,61,61,43,25,43,43,43,43,43},
+    {62,29,62,62,62,62,62,62,43,62,43,43,43,43,43},
+    {43,3,46,43,43,43,39,43,43,43,28,38,43,43,43},
+    {63,43,63,63,63,63,63,63,43,63,43,43,43,43,43},
+    {43,43,30,43,43,43,43,43,43,43,43,43,43,43,43},
+    {43,43,43,43,43,43,43,43,43,43,33,43,43,43,43},
+    {43,35,43,43,43,43,43,43,41,43,43,43,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {43,43,49,43,43,43,43,43,43,43,10,43,43,43,43},
+    {43,43,43,43,43,43,43,43,34,43,43,43,43,43,43},
+    {43,43,36,43,43,43,43,43,43,43,43,43,43,43,43},
+    {64,43,64,64,64,64,64,64,43,64,43,43,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {65,43,65,65,65,65,65,65,43,65,43,43,43,43,43},
+    {43,3,43,43,43,43,39,43,43,43,28,38,43,43,43},
+    {66,43,66,66,66,66,66,66,43,43,43,43,43,43,43}
   };
   private static uint[,] GOTO = new uint[,] {
-    {2,20,41,16,26,0,0},
+    {2,21,42,17,27,0,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
-    {0,5,41,16,26,0,0},
+    {0,5,42,17,27,0,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
-    {0,8,41,16,26,7,0},
+    {0,8,42,17,27,7,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,11},
-    {0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0},
-    {0,0,13,0,26,0,0},
+    {0,0,0,0,0,0,12},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0},
-    {0,0,41,14,26,0,0},
-    {0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0},
-    {0,0,22,0,26,0,0},
-    {0,0,0,0,0,0,0},
-    {0,0,41,15,26,0,0},
-    {0,0,25,0,26,0,0},
-    {0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0},
-    {0,8,41,16,26,30,0},
+    {0,0,14,0,27,0,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
-    {0,18,41,16,26,0,0},
-    {0,0,0,0,0,0,36},
+    {0,0,42,15,27,0,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0},
-    {0,0,0,0,39,0,0},
+    {0,0,23,0,27,0,0},
     {0,0,0,0,0,0,0},
-    {0,19,41,16,26,0,0},
+    {0,0,42,16,27,0,0},
+    {0,0,26,0,27,0,0},
+    {0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0},
+    {0,8,42,17,27,31,0},
+    {0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0},
+    {0,19,42,17,27,0,0},
+    {0,0,0,0,0,0,37},
+    {0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0},
+    {0,0,0,0,40,0,0},
+    {0,0,0,0,0,0,0},
+    {0,20,42,17,27,0,0},
     {0,0,0,0,0,0,0}
   };
   private uint top() {
     return stack.Count == 0 ? 0 : stack.Peek().state;
   }
-  static string[] stateNames = new string[] {".","%eof","D","lparen","rparen","E","comma","A","E","comma","id","P","division","F","T","T","T","minus","E","E","E","multiply","F","plus","pow","F","V","id","lparen","rparen","A","def","id","init","lparen","rparen","P","number","minus","V","init","F"};
-  static string[] expectedSyms = new string[] {"D","%eof","%eof","E","%eof/comma/division/minus/multiply/plus/pow/rparen","rparen/minus/plus","A","rparen","comma/rparen/minus/plus","P","comma/rparen","rparen","F","%eof/comma/division/minus/multiply/plus/rparen","division/%eof/comma/minus/plus/rparen/multiply","division/multiply/%eof/comma/minus/plus/rparen","division/multiply/%eof/comma/minus/plus/rparen","T","minus/plus/%eof","minus/plus/%eof","minus/plus/%eof","F","%eof/comma/division/minus/multiply/plus/rparen","T","F","%eof/comma/division/minus/multiply/plus/rparen","pow/%eof/comma/division/minus/multiply/plus/rparen","lparen/%eof/comma/division/minus/multiply/plus/pow/rparen","A","%eof/comma/division/minus/multiply/plus/pow/rparen","rparen","id/id","lparen/init","E","P","init","rparen","%eof/comma/division/minus/multiply/plus/pow/rparen","V","%eof/comma/division/minus/multiply/plus/pow/rparen","E","%eof/comma/division/minus/multiply/plus/rparen"};
+  static string[] stateNames = new string[] {".","%eof","D","lparen","rparen","E","comma","A","E","comma","id","id","P","division","F","T","T","T","minus","E","E","E","multiply","F","plus","pow","F","V","id","lparen","rparen","A","def","id","init","lparen","rparen","P","number","minus","V","init","F"};
+  static string[] expectedSyms = new string[] {"D","%eof","%eof","E","%eof/comma/division/minus/multiply/plus/pow/rparen","rparen/minus/plus","A","rparen","comma/rparen/minus/plus","P","id/id","comma/rparen","rparen","F","%eof/comma/division/minus/multiply/plus/rparen","division/%eof/comma/minus/plus/rparen/multiply","division/multiply/%eof/comma/minus/plus/rparen","division/multiply/%eof/comma/minus/plus/rparen","T","minus/plus/%eof","minus/plus/%eof","minus/plus/%eof","F","%eof/comma/division/minus/multiply/plus/rparen","T","F","%eof/comma/division/minus/multiply/plus/rparen","pow/%eof/comma/division/minus/multiply/plus/rparen","lparen/%eof/comma/division/minus/multiply/plus/pow/rparen","A","%eof/comma/division/minus/multiply/plus/pow/rparen","rparen","id/id","lparen/init","E","P","init","rparen","%eof/comma/division/minus/multiply/plus/pow/rparen","V","%eof/comma/division/minus/multiply/plus/pow/rparen","E","%eof/comma/division/minus/multiply/plus/rparen"};
 
   public Parser(Lexer lex, bool debug = false) {
     this.lex = lex;
@@ -112,13 +114,13 @@ public class Parser {
     while (true) {
       var action = Action[top(), (int)a.type];
       switch (action) {
-      case 43: {
+      case 44: {
           stack.Pop();
           return stack.Pop().value;
 
         }
 
-      case 45: {
+      case 46: {
           if(debug) Console.Error.WriteLine("Reduce using A -> ");
           
           var gt = GOTO[top(), 5 /*A*/];
@@ -132,7 +134,7 @@ public class Parser {
 
         }
 
-      case 47: {
+      case 48: {
           if(debug) Console.Error.WriteLine("Reduce using A -> E");
           dynamic _1=stack.Pop().value;
           var gt = GOTO[top(), 5 /*A*/];
@@ -146,7 +148,7 @@ public class Parser {
 
         }
 
-      case 46: {
+      case 47: {
           if(debug) Console.Error.WriteLine("Reduce using A -> E comma A");
           dynamic _3=stack.Pop().value;
           var _2=stack.Pop().value.Item2;
@@ -162,7 +164,7 @@ public class Parser {
 
         }
 
-      case 56: {
+      case 57: {
           if(debug) Console.Error.WriteLine("Reduce using D -> def id init E");
           dynamic _4=stack.Pop().value;
           var _3=stack.Pop().value.Item2;
@@ -179,7 +181,7 @@ public class Parser {
 
         }
 
-      case 55: {
+      case 56: {
           if(debug) Console.Error.WriteLine("Reduce using D -> def id lparen P rparen init E");
           dynamic _7=stack.Pop().value;
           var _6=stack.Pop().value.Item2;
@@ -199,7 +201,7 @@ public class Parser {
 
         }
 
-      case 57: {
+      case 58: {
           if(debug) Console.Error.WriteLine("Reduce using D -> E");
           dynamic _1=stack.Pop().value;
           var gt = GOTO[top(), 0 /*D*/];
@@ -213,7 +215,7 @@ public class Parser {
 
         }
 
-      case 52: {
+      case 53: {
           if(debug) Console.Error.WriteLine("Reduce using E -> E minus T");
           dynamic _3=stack.Pop().value;
           var _2=stack.Pop().value.Item2;
@@ -229,7 +231,7 @@ public class Parser {
 
         }
 
-      case 53: {
+      case 54: {
           if(debug) Console.Error.WriteLine("Reduce using E -> E plus T");
           dynamic _3=stack.Pop().value;
           var _2=stack.Pop().value.Item2;
@@ -245,7 +247,7 @@ public class Parser {
 
         }
 
-      case 54: {
+      case 55: {
           if(debug) Console.Error.WriteLine("Reduce using E -> T");
           dynamic _1=stack.Pop().value;
           var gt = GOTO[top(), 1 /*E*/];
@@ -259,7 +261,7 @@ public class Parser {
 
         }
 
-      case 60: {
+      case 61: {
           if(debug) Console.Error.WriteLine("Reduce using F -> V");
           dynamic _1=stack.Pop().value;
           var gt = GOTO[top(), 2 /*F*/];
@@ -273,7 +275,7 @@ public class Parser {
 
         }
 
-      case 59: {
+      case 60: {
           if(debug) Console.Error.WriteLine("Reduce using F -> V pow F");
           dynamic _3=stack.Pop().value;
           var _2=stack.Pop().value.Item2;
@@ -289,7 +291,7 @@ public class Parser {
 
         }
 
-      case 48: {
+      case 49: {
           if(debug) Console.Error.WriteLine("Reduce using P -> ");
           
           var gt = GOTO[top(), 6 /*P*/];
@@ -303,23 +305,8 @@ public class Parser {
 
         }
 
-      case 49: {
-          if(debug) Console.Error.WriteLine("Reduce using P -> id");
-          var _1=stack.Pop().value.Item2;
-          var gt = GOTO[top(), 6 /*P*/];
-          if(gt==0) throw new ApplicationException("No goto");
-          if(debug) {
-            Console.Error.WriteLine($"{top()} is now on top of the stack;");
-            Console.Error.WriteLine($"{gt} will be placed on the stack");
-          }
-          stack.Push((gt,(new Parametrs(_1))));
-          break;
-
-        }
-
       case 50: {
-          if(debug) Console.Error.WriteLine("Reduce using P -> id comma P");
-          dynamic _3=stack.Pop().value;
+          if(debug) Console.Error.WriteLine("Reduce using P -> id id");
           var _2=stack.Pop().value.Item2;
           var _1=stack.Pop().value.Item2;
           var gt = GOTO[top(), 6 /*P*/];
@@ -328,12 +315,29 @@ public class Parser {
             Console.Error.WriteLine($"{top()} is now on top of the stack;");
             Console.Error.WriteLine($"{gt} will be placed on the stack");
           }
-          stack.Push((gt,(_3.addParametr(_1))));
+          stack.Push((gt,(new Parametrs(_1, _2))));
           break;
 
         }
 
-      case 65: {
+      case 51: {
+          if(debug) Console.Error.WriteLine("Reduce using P -> id id comma P");
+          dynamic _4=stack.Pop().value;
+          var _3=stack.Pop().value.Item2;
+          var _2=stack.Pop().value.Item2;
+          var _1=stack.Pop().value.Item2;
+          var gt = GOTO[top(), 6 /*P*/];
+          if(gt==0) throw new ApplicationException("No goto");
+          if(debug) {
+            Console.Error.WriteLine($"{top()} is now on top of the stack;");
+            Console.Error.WriteLine($"{gt} will be placed on the stack");
+          }
+          stack.Push((gt,(_4.addParametr(_1, _2))));
+          break;
+
+        }
+
+      case 66: {
           if(debug) Console.Error.WriteLine("Reduce using T -> F");
           dynamic _1=stack.Pop().value;
           var gt = GOTO[top(), 3 /*T*/];
@@ -347,7 +351,7 @@ public class Parser {
 
         }
 
-      case 51: {
+      case 52: {
           if(debug) Console.Error.WriteLine("Reduce using T -> T division F");
           dynamic _3=stack.Pop().value;
           var _2=stack.Pop().value.Item2;
@@ -363,7 +367,7 @@ public class Parser {
 
         }
 
-      case 58: {
+      case 59: {
           if(debug) Console.Error.WriteLine("Reduce using T -> T multiply F");
           dynamic _3=stack.Pop().value;
           var _2=stack.Pop().value.Item2;
@@ -379,7 +383,7 @@ public class Parser {
 
         }
 
-      case 61: {
+      case 62: {
           if(debug) Console.Error.WriteLine("Reduce using V -> id");
           var _1=stack.Pop().value.Item2;
           var gt = GOTO[top(), 4 /*V*/];
@@ -393,7 +397,7 @@ public class Parser {
 
         }
 
-      case 62: {
+      case 63: {
           if(debug) Console.Error.WriteLine("Reduce using V -> id lparen A rparen");
           var _4=stack.Pop().value.Item2;
           dynamic _3=stack.Pop().value;
@@ -410,7 +414,7 @@ public class Parser {
 
         }
 
-      case 44: {
+      case 45: {
           if(debug) Console.Error.WriteLine("Reduce using V -> lparen E rparen");
           var _3=stack.Pop().value.Item2;
           dynamic _2=stack.Pop().value;
@@ -426,7 +430,7 @@ public class Parser {
 
         }
 
-      case 64: {
+      case 65: {
           if(debug) Console.Error.WriteLine("Reduce using V -> minus V");
           dynamic _2=stack.Pop().value;
           var _1=stack.Pop().value.Item2;
@@ -441,7 +445,7 @@ public class Parser {
 
         }
 
-      case 63: {
+      case 64: {
           if(debug) Console.Error.WriteLine("Reduce using V -> number");
           var _1=stack.Pop().value.Item2;
           var gt = GOTO[top(), 4 /*V*/];
@@ -455,7 +459,7 @@ public class Parser {
 
         }
 
-      case 42: {
+      case 43: {
           string parsed=stateNames[top()];
           var lastSt = top();
           while(stack.Count > 0) { stack.Pop(); parsed = stateNames[top()] + " " + parsed; }
